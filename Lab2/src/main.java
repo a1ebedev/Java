@@ -19,16 +19,32 @@ public class main {
 
     public static void main(String[] args) throws Exception {
         int n;
-        int summ = 0;
+        int sum = 0;
+        int count = 1;
+        int result = 0;
+
         System.out.println("Лабораторная работа 2\nЗадача 3:");
         n = getInt("Введите количество элементов последовательности");
         for (int i = 1; i <= n; i++) {
             int x = getInt("Введите число " + i);
-            if (i % 2 == 0) summ += x;
+            if (i % 2 == 0) sum += x;
         }
 
-        System.out.println("Сумма элементов с четными номерами: " + summ);
+        System.out.println("Сумма элементов с четными номерами: " + sum);
 
+        System.out.println("Задача 2:");
+
+        do {
+            n = getInt("Введите число " + count);
+            if (n <= sum && n != 0) {
+                sum = n;
+                result = count;
+            }
+            count = count + 1;
+        }
+        while (n != 0);
+
+        System.out.println(result + "-е введенное число со значением " + sum + " минимально");
 
 
     }
