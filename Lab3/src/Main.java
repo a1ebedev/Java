@@ -119,7 +119,7 @@ public class Main {
 
         // Добавление нового элемента
         System.out.println("Добавление нового элемента");
-        int addEl = getInt("Введите номер");
+        int addEl = getInt("Введите номер ячейки");
         int k = getInt("Введите значение");
         int[] addElArray = editArray(minDelArray, "add", addEl - 1, k);
         printArray(addElArray);
