@@ -135,6 +135,7 @@ public class Main {
             System.out.print(addElArray[i] + " ");
         }
 
+        //Находим элемент равный среднему арифм. элементов массива
         System.out.println("\n\nЭлемент равный среднему арифм. элементов массива:");
         int averageEl = sizeElements(addElArray, "average");
 
