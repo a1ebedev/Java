@@ -1,5 +1,6 @@
 package ru.leqsle;
 import ru.leqsle.labs.FirstLab;
+import ru.leqsle.labs.FourthLab;
 import ru.leqsle.labs.SecondLab;
 import ru.leqsle.labs.ThirdLab;
 
@@ -11,6 +12,7 @@ public class Main {
         new FirstLab();
         new SecondLab();
         new ThirdLab();
+        new FourthLab();
     }
 
 }

@@ -33,7 +33,6 @@ public class ThirdLab {
         }
         numArray.print();
         Output.pause();
-
     }
 
     private void taskTwo() throws IOException {

@@ -1,6 +1,7 @@
 package ru.leqsle.myArrays;
 
 public interface NumbersList {
+    void random(int length);
     void add(int index, int value);
     void remove(int index);
     void removeValue(int value);

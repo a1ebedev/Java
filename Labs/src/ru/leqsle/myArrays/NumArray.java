@@ -1,11 +1,25 @@
 package ru.leqsle.myArrays;
 
+import ru.leqsle.interaction.Output;
+
+import java.util.Random;
+
 public class NumArray implements NumbersList {
 
     private int[] array;
+    private Random rand = new Random();
 
     public NumArray() {
         array = new int[0];
+    }
+
+    @Override
+    public void random(int length) {
+        array = new int[length];
+        for (int i = 0; i < length; i++) {
+            int x = rand.nextInt() % 100 - 25;
+            array[i] = x;
+        }
     }
 
     @Override
@@ -71,7 +85,6 @@ public class NumArray implements NumbersList {
         }
     }
 
-
     @Override
     public int size() {
         return array.length;
@@ -112,6 +125,4 @@ public class NumArray implements NumbersList {
         }
         System.out.println();
     }
-
-
 }
