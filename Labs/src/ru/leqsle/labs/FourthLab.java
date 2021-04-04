@@ -2,6 +2,7 @@ package ru.leqsle.labs;
 
 import ru.leqsle.interaction.Input;
 import ru.leqsle.interaction.Output;
+import ru.leqsle.myArrays.DoubleArray;
 import ru.leqsle.myArrays.NumArray;
 import ru.leqsle.myArrays.NumbersList;
 
@@ -10,11 +11,13 @@ import java.io.IOException;
 public class FourthLab {
     private Input input = new Input();
     private NumbersList numArray = new NumArray();
+    private DoubleArray doubleArray = new DoubleArray();
 
     public FourthLab() throws IOException {
         System.out.println("Лабораторная работа 4");
         taskOne();
         taskTwo();
+        taskThird();
     }
 
     private void taskOne() throws IOException {
@@ -34,5 +37,14 @@ public class FourthLab {
         numArray.print();
         Output.pause();
 
+    }
+
+    private void taskThird() throws IOException {
+        System.out.println("Сформируем двумерный массив, используя ДСЧ");
+        int strings = input.getInt("Количество строк");
+        int columns = input.getInt("Количество столбцов");
+        doubleArray.random(strings,columns);
+        doubleArray.print();
+        Output.pause();
     }
 }
