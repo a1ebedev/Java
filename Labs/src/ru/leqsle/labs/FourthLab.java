@@ -19,6 +19,7 @@ public class FourthLab {
         taskTwo();
         taskThird();
         taskFourth();
+        taskSixth();
     }
 
     private void taskOne() throws IOException {
@@ -56,4 +57,25 @@ public class FourthLab {
         doubleArray.print();
         Output.pause();
     }
+
+    private void taskSixth() throws IOException {
+        System.out.println("Обработка строк с символами");
+        String line = input.getString("Введите строку");
+        System.out.println("Вы ввели: " + line);
+        System.out.print("Без гласных: ");
+        remVowels(line);
+        Output.pause();
+    }
+
+    // Удаляет гласные буквы из строки
+    private void remVowels(String line) {
+        String lowerLine = line.toLowerCase();
+        String[] vowels = {"а", "у", "е", "ё", "ы", "а", "о", "э", "я", "и", "ю"};
+        for (int i = 0; i < vowels.length; i++) {
+            lowerLine = lowerLine.replace(vowels[i], "");
+        }
+        System.out.println(lowerLine);
+    }
+
+
 }

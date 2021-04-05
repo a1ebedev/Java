@@ -41,5 +41,11 @@ public class Input implements Commands {
         return number;
     }
 
+    public String getString(String s) {
+        System.out.print(s + ": ");
+        String str = in.nextLine();
+        return str;
+    }
+
 }
 
