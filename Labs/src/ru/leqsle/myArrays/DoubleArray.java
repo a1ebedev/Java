@@ -23,13 +23,27 @@ public class DoubleArray {
     public void print() {
         System.out.println("Результат:");
         for (int[] i : array) {
-            for(int j : i) {
+            for (int j : i) {
                 System.out.format(" [%4d]", j);
             }
             System.out.println();
         }
     }
 
+    public void moveLeft(int position) {
+        if(position > array.length) position %= array.length;
+        int[] temp = new int[position];
 
-
+        for(int i = 0; i < array.length; i += 2) {
+            for(int j = 0; j < position; j++) {
+                temp[j] = array[i][j];
+            }
+            for (int j = 0; j < array[i].length - position; j++) {
+                array[i][j] = array[i][j + position];
+            }
+            for (int j = 0; j < position; j++) {
+                array[i][j + array[i].length - position] = temp[j];
+            }
+        }
+    }
 }

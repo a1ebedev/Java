@@ -18,6 +18,7 @@ public class FourthLab {
         taskOne();
         taskTwo();
         taskThird();
+        taskFourth();
     }
 
     private void taskOne() throws IOException {
@@ -44,6 +45,14 @@ public class FourthLab {
         int strings = input.getInt("Количество строк");
         int columns = input.getInt("Количество столбцов");
         doubleArray.random(strings,columns);
+        doubleArray.print();
+        Output.pause();
+    }
+
+    private void taskFourth() throws IOException {
+        System.out.println("Сдвинем нечетные строки матрицы влево на К элементов");
+        int k = input.getInt("Введите К");
+        doubleArray.moveLeft(k);
         doubleArray.print();
         Output.pause();
     }
