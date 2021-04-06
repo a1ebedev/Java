@@ -7,6 +7,8 @@ import ru.leqsle.myArrays.NumArray;
 import ru.leqsle.myArrays.NumbersList;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
+
 
 public class FourthLab {
     private Input input = new Input();
@@ -33,8 +35,8 @@ public class FourthLab {
     private void taskTwo() throws IOException {
         System.out.println("Удалим элементы с четными номерами");
 
-        for(int i = numArray.size() - 1; i >= 0; i--) {
-            if(numArray.get(i)%2 == 0) numArray.remove(i);
+        for (int i = numArray.size() - 1; i >= 0; i--) {
+            if (numArray.get(i) % 2 == 0) numArray.remove(i);
         }
         numArray.print();
         Output.pause();
@@ -45,7 +47,7 @@ public class FourthLab {
         System.out.println("Сформируем двумерный массив, используя ДСЧ");
         int strings = input.getInt("Количество строк");
         int columns = input.getInt("Количество столбцов");
-        doubleArray.random(strings,columns);
+        doubleArray.random(strings, columns);
         doubleArray.print();
         Output.pause();
     }
@@ -59,23 +61,23 @@ public class FourthLab {
     }
 
     private void taskSixth() throws IOException {
-        System.out.println("Обработка строк с символами");
         String line = input.getString("Введите строку");
-        System.out.println("Вы ввели: " + line);
-        System.out.print("Без гласных: ");
-        remVowels(line);
-        Output.pause();
+        String noVowelsLine = removeVowelsWords(line);
+        System.out.println(noVowelsLine);
+
     }
 
-    // Удаляет гласные буквы из строки
-    private void remVowels(String line) {
-        String lowerLine = line.toLowerCase();
-        String[] vowels = {"а", "у", "е", "ё", "ы", "а", "о", "э", "я", "и", "ю"};
-        for (int i = 0; i < vowels.length; i++) {
-            lowerLine = lowerLine.replace(vowels[i], "");
+    // Принимает строку, удаляет из нее слова, начинающиеся с гласной и возвращает обратно
+    private String removeVowelsWords(String line) {
+        StringBuilder temp = new StringBuilder();
+        String[] words = line.split("\\s");
+
+        for (String s : words) {
+            boolean vowels = Pattern.matches("^(?ui:[аеёиоуыэюя]).*", s);
+            if(vowels == false) temp.append(s + " ");
         }
-        System.out.println(lowerLine);
+
+            String result = temp.toString();
+            return result;
+        }
     }
-
-
-}
