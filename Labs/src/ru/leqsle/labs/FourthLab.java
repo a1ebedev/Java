@@ -61,9 +61,11 @@ public class FourthLab {
     }
 
     private void taskSixth() throws IOException {
+        System.out.println("Удаление всех слов, начинающихся на гласные из введенной строки");
         String line = input.getString("Введите строку");
         String noVowelsLine = removeVowelsWords(line);
         System.out.println(noVowelsLine);
+        Output.pause();
 
     }
 
