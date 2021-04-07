@@ -1,6 +1,5 @@
 package ru.leqsle.interaction;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Input implements Commands {
@@ -20,6 +19,7 @@ public class Input implements Commands {
                 number = Integer.valueOf(in.nextLine());
                 ok = true;
             } catch (NumberFormatException e) {
+                ok = false;
                 System.out.println("Ошибка при вводе числа!");
             }
         } while (!ok);
@@ -35,13 +35,35 @@ public class Input implements Commands {
                 number = Double.valueOf(in.nextLine());
                 ok = true;
             } catch (NumberFormatException e) {
+                ok = false;
                 System.out.println("Ошибка при вводе числа");
             }
         } while (!ok);
         return number;
     }
 
+    @Override
     public String getString(String s) {
+        String str = new String();
+        do {
+            System.out.print(s + ": ");
+            try {
+                str = in.nextLine();
+                if (str == null || str.trim().isEmpty()) {
+                    throw new Exception();
+                } else ok = true;
+
+            } catch (Exception e) {
+                ok = false;
+                System.out.println("Вы ничего не ввели!");
+            }
+        } while (!ok);
+        return str;
+
+    }
+
+    @Override
+    public String getAnswer(String s) {
         System.out.print(s + ": ");
         String str = in.nextLine();
         return str;

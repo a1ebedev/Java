@@ -1,22 +1,18 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Input;
 import ru.leqsle.interaction.Output;
-import ru.leqsle.myArrays.DoubleArray;
-import ru.leqsle.myArrays.NumArray;
-import ru.leqsle.myArrays.NumbersList;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
 
 
-public class FourthLab {
-    private Input input = new Input();
-    private NumbersList numArray = new NumArray();
-    private DoubleArray doubleArray = new DoubleArray();
+public class FourthLab extends Lab{
 
     public FourthLab() throws IOException {
-        System.out.println("Лабораторная работа 4");
+        super(4);
+    }
+
+    public void tasks() throws IOException {
         taskOne();
         taskTwo();
         taskThird();
@@ -64,8 +60,7 @@ public class FourthLab {
         System.out.println("Удаление всех слов, начинающихся на гласные из введенной строки");
         String line = input.getString("Введите строку");
         String noVowelsLine = removeVowelsWords(line);
-        System.out.println(noVowelsLine);
-        Output.pause();
+        System.out.println("Результат: " + noVowelsLine);
 
     }
 

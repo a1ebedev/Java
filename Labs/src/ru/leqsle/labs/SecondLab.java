@@ -1,25 +1,22 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Input;
-import ru.leqsle.interaction.Output;
-
 import java.io.IOException;
 
-public class SecondLab {
-    private Input input = new Input();
+public class SecondLab extends Lab{
+    private int n;
     private int result = 0;
     private int sum = 0;
-    private int n;
 
     public SecondLab() throws IOException {
-        System.out.println("Лабораторная работа 2");
+        super(2);
+    }
+
+    public void tasks() {
         taskOne();
         taskTwo();
-        Output.pause();
     }
 
     private void taskOne() {
-
         System.out.println("Задача 1. Дана последовательность из n целых чисел. Найти сумму элементов с четными номерами.");
 
         n = input.getInt("Введите количество элементов последовательности");

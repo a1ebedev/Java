@@ -120,7 +120,7 @@ public class NumArray implements NumbersList {
 
         while (w < array.length) {
             ch = w % 10 == 0 ? '\n' : ' ';
-            System.out.format("%c%2d[%4d]", ch, w, array[w]);
+            System.out.format("%c[%2d: %4d]", ch, w, array[w]);
             w++;
         }
         System.out.println();

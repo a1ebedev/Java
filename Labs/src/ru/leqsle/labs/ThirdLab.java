@@ -1,36 +1,30 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Input;
 import ru.leqsle.interaction.Output;
-import ru.leqsle.myArrays.NumArray;
-import ru.leqsle.myArrays.NumbersList;
 
 import java.io.IOException;
-import java.util.Random;
 
-public class ThirdLab {
-    private Input input = new Input();
-    private Random rand = new Random();
-    private NumbersList numArray = new NumArray();
+
+public class ThirdLab extends Lab {
+
 
     public ThirdLab() throws IOException {
-        System.out.println("Лабораторная работа 3");
+        super(3);
+
+    }
+
+    public void tasks() throws IOException {
         taskOne();
         taskTwo();
         taskThird();
         taskFourth();
-        taskSixth();
-
+        taskFifth();
     }
 
     private void taskOne() throws IOException {
         System.out.println("Формирование массива с помощью ДСЧ");
         int n = input.getInt("Введите длину массива");
-
-        for (int i = 0; i < n; i++) {
-            int x = rand.nextInt() % 100 - 25;
-            numArray.add(i, x);
-        }
+        numArray.random(n);
         numArray.print();
         Output.pause();
     }
@@ -62,8 +56,7 @@ public class ThirdLab {
         int max = numArray.get("max");
         int maxValue = numArray.get(max);
 
-        System.out.printf("\nМинимальное %2d[%4d], Максимальное %2d[%4d]\n", min, minValue, max, maxValue);
-        System.out.println("Поменяем их местами");
+        System.out.printf("\nМинимальное [%2d:%4d], Максимальное [%2d:%4d], Поменяем их местами\n", min, minValue, max, maxValue);
 
         numArray.replace(min, maxValue);
         numArray.replace(max, minValue);
@@ -72,10 +65,9 @@ public class ThirdLab {
         Output.pause();
     }
 
-    private void taskSixth() throws IOException {
+    private void taskFifth() {
         System.out.println("Проведем сортировку методом простого выбора");
         numArray.sort();
         numArray.print();
-        Output.pause();
     }
 }
