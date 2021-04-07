@@ -1,16 +1,16 @@
 package ru.leqsle;
-import ru.leqsle.labs.*;
+import ru.leqsle.ui.Menu;
 
 import java.io.IOException;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        new FirstLab();
-        new SecondLab();
-        new ThirdLab();
-        new FourthLab();
-        new FifthLab();
+        System.out.println();
+        System.out.println("Лабораторные работы Java. 20 вариант\nВыполнил студент группы АТПП-20-1бз Лебедев А.А.\n");
+        Menu menu = new Menu();
+        menu.main();
+
     }
 
 }

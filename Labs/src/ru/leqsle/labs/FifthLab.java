@@ -1,6 +1,6 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Output;
+import ru.leqsle.ui.Output;
 
 import java.io.IOException;
 import java.util.*;
@@ -63,7 +63,6 @@ public class FifthLab extends Lab{
                 int x = rand.nextInt() % 100 - 25;
                 list.get(i).add(x);
             }
-
         }
 
         for (List<Integer> i : list) {
@@ -75,13 +74,17 @@ public class FifthLab extends Lab{
     private void taskFourth() throws IOException {
         System.out.println("Добавим строки после каждой четной строки");
 
+        for (int i = 2; i < strings; i += 2) {
+            list.add(i, new ArrayList<Integer>());
+            for (int j = 0; j < columns; j++) {
+                int x = rand.nextInt() % 100 - 25;
+                list.get(i).add(x);
+            }
+        }
 
         for (List<Integer> i : list) {
             System.out.print(i + "\n");
         }
         Output.pause();
-
     }
-
-
 }

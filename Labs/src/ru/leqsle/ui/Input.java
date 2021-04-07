@@ -1,4 +1,4 @@
-package ru.leqsle.interaction;
+package ru.leqsle.ui;
 
 import java.util.Scanner;
 

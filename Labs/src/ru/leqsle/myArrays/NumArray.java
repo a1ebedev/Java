@@ -1,7 +1,5 @@
 package ru.leqsle.myArrays;
 
-import ru.leqsle.interaction.Output;
-
 import java.util.Random;
 
 public class NumArray implements NumbersList {
@@ -64,8 +62,9 @@ public class NumArray implements NumbersList {
 
     @Override
     public int get(String s) {
-        int indexMax = 0, indexMin = 0, minValue = 0, maxValue = 0;
+        int indexMax = 0, indexMin = 0, minValue = 0, maxValue = 0, summa = 0;
         for (int i = 0; i < array.length; i++) {
+            summa += array[i];
             if (array[i] < minValue) {
                 minValue = array[i];
                 indexMin = i;
@@ -75,11 +74,25 @@ public class NumArray implements NumbersList {
                 indexMax = i;
             }
         }
+
+        int averageValue = Math.round(summa / array.length);
+        int min = Integer.MAX_VALUE;
+        for (int v : array) {
+            final int diff = Math.abs(v - averageValue);
+
+            if (diff < min) {
+                min = diff;
+                averageValue = v;
+            }
+        }
+
         switch (s) {
             case "max":
                 return indexMax;
             case "min":
                 return indexMin;
+            case "average":
+                return averageValue;
             default:
                 return -1;
         }

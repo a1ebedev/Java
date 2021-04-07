@@ -1,6 +1,6 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Output;
+import ru.leqsle.ui.Output;
 
 import java.io.IOException;
 import java.util.regex.Pattern;

@@ -1,6 +1,6 @@
 package ru.leqsle.labs;
 
-import ru.leqsle.interaction.Output;
+import ru.leqsle.ui.Output;
 
 import java.io.IOException;
 
@@ -19,6 +19,7 @@ public class ThirdLab extends Lab {
         taskThird();
         taskFourth();
         taskFifth();
+        taskSixth();
     }
 
     private void taskOne() throws IOException {
@@ -41,7 +42,22 @@ public class ThirdLab extends Lab {
     private void taskThird() throws IOException {
         System.out.println("\nДобавление нового элемента");
         int size = numArray.size();
-        int index = input.getInt("Введите индекс (0-" + size + ")");
+        boolean ok;
+        int index;
+
+        do {
+            index = input.getInt("Введите индекс (0-" + size + ")");
+            try {
+                if(index < 0 || index > numArray.size()) {
+                    throw new Exception();
+                } else ok = true;
+            } catch (Exception e) {
+                ok = false;
+                System.out.println("Неверный индекс!");
+            }
+        } while (!ok);
+
+
         int value = input.getInt("Введите значение");
         numArray.add(index, value);
         numArray.print();
@@ -65,7 +81,14 @@ public class ThirdLab extends Lab {
         Output.pause();
     }
 
-    private void taskFifth() {
+    private  void taskFifth() {
+        int average = numArray.get("average");
+        System.out.printf("Элемент равный среднему арифметическому элементов массива [%3d]", average);
+        System.out.println();
+
+    }
+
+    private void taskSixth() {
         System.out.println("Проведем сортировку методом простого выбора");
         numArray.sort();
         numArray.print();

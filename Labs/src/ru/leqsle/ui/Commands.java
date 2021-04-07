@@ -1,6 +1,4 @@
-package ru.leqsle.interaction;
-
-import java.io.IOException;
+package ru.leqsle.ui;
 
 public interface Commands {
     int getInt(String s);
