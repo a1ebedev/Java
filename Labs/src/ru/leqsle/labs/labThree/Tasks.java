@@ -1,45 +1,33 @@
-package ru.leqsle.labs;
+package ru.leqsle.labs.labThree;
 
-import ru.leqsle.ui.Output;
+import ru.leqsle.labs.Task;
+import ru.leqsle.myArrays.NumArray;
+import ru.leqsle.myArrays.NumbersList;
 
 import java.io.IOException;
 
+public class Tasks extends Task {
+    private NumbersList numArray;
+    private int min = numArray.get("min");
+    private int minValue = numArray.get(min);
 
-public class ThirdLab extends Lab {
-
-
-    public ThirdLab() throws IOException {
-        super(3);
-
+    public Tasks() throws IOException {
+        super();
     }
 
-    public void tasks() throws IOException {
-        taskOne();
-        taskTwo();
-        taskThird();
-        taskFourth();
-        taskFifth();
-        taskSixth();
-    }
+    public void body() throws IOException {
 
-    private void taskOne() throws IOException {
-        System.out.println("Формирование массива с помощью ДСЧ");
-        int n = input.getInt("Введите длину массива");
+        numArray = new NumArray();
+        int n = input.getInt("Формирование массива. Введите длину массива");
         numArray.random(n);
         numArray.print();
-        Output.pause();
-    }
+        menu.pause();
 
-    private void taskTwo() throws IOException {
-        int min = numArray.get("min");
-        int minValue = numArray.get(min);
-        System.out.printf("\nМинимальное %2d[%4d]. Удалим его\n", min, minValue);
+        System.out.printf("\nМинимальное [%d:%d]. Удалим его\n", min, minValue);
         numArray.remove(min);
         numArray.print();
-        Output.pause();
-    }
+        menu.pause();
 
-    private void taskThird() throws IOException {
         System.out.println("\nДобавление нового элемента");
         int size = numArray.size();
         boolean ok;
@@ -48,7 +36,7 @@ public class ThirdLab extends Lab {
         do {
             index = input.getInt("Введите индекс (0-" + size + ")");
             try {
-                if(index < 0 || index > numArray.size()) {
+                if (index < 0 || index > numArray.size()) {
                     throw new Exception();
                 } else ok = true;
             } catch (Exception e) {
@@ -61,12 +49,8 @@ public class ThirdLab extends Lab {
         int value = input.getInt("Введите значение");
         numArray.add(index, value);
         numArray.print();
-        Output.pause();
+        menu.pause();
 
-    }
-
-
-    private void taskFourth() throws IOException {
         int min = numArray.get("min");
         int minValue = numArray.get(min);
         int max = numArray.get("max");
@@ -78,17 +62,13 @@ public class ThirdLab extends Lab {
         numArray.replace(max, minValue);
 
         numArray.print();
-        Output.pause();
-    }
+        menu.pause();
 
-    private  void taskFifth() {
         int average = numArray.get("average");
         System.out.printf("Элемент равный среднему арифметическому элементов массива [%3d]", average);
         System.out.println();
+        menu.pause();
 
-    }
-
-    private void taskSixth() {
         System.out.println("Проведем сортировку методом простого выбора");
         numArray.sort();
         numArray.print();

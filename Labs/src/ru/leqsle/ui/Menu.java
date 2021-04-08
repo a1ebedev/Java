@@ -1,11 +1,15 @@
 package ru.leqsle.ui;
 
-import ru.leqsle.labs.*;
+import ru.leqsle.labs.labFive.FifthLab;
+import ru.leqsle.labs.labFour.LabFour;
+import ru.leqsle.labs.labOne.LabOne;
+import ru.leqsle.labs.labThree.LabThree;
+import ru.leqsle.labs.labTwo.LabTwo;
 
 import java.io.IOException;
 
 public class Menu {
-    private Commands input = new Input();
+    private Input input = new Get();
 
     // Основное меню
     public void main() throws IOException {
@@ -17,20 +21,25 @@ public class Menu {
         }
         System.out.println();
 
-        int question = input.getInt("");
+        int question = input.getInt("Введите значение");
 
         switch (question) {
             case 1:
-                new FirstLab();
+                new LabOne();
             case 2:
-                new SecondLab();
+                new LabTwo();
             case 3:
-                new ThirdLab();
+                new LabThree();
             case 4:
-                new FourthLab();
+                new LabFour();
             case 5:
                 new FifthLab();
         }
+    }
+
+    public void pause() throws IOException {
+        System.out.println("Нажмите Enter, чтобы продолжить...");
+        System.in.read();
     }
 
 }
