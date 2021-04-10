@@ -8,20 +8,25 @@ import java.io.IOException;
 
 public class Tasks extends Task {
     private NumbersList numArray;
-    private int min = numArray.get("min");
-    private int minValue = numArray.get(min);
+    private int min;
+    private int minValue;
 
     public Tasks() throws IOException {
         super();
     }
 
     public void body() throws IOException {
-
         numArray = new NumArray();
+
+
+
         int n = input.getInt("Формирование массива. Введите длину массива");
         numArray.random(n);
         numArray.print();
         menu.pause();
+
+        min  = numArray.get("min");
+        minValue = numArray.get(min);
 
         System.out.printf("\nМинимальное [%d:%d]. Удалим его\n", min, minValue);
         numArray.remove(min);
