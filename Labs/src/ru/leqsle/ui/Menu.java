@@ -3,6 +3,7 @@ package ru.leqsle.ui;
 import ru.leqsle.labs.labFive.FifthLab;
 import ru.leqsle.labs.labFour.LabFour;
 import ru.leqsle.labs.labOne.LabOne;
+import ru.leqsle.labs.labSix.LabSix;
 import ru.leqsle.labs.labThree.LabThree;
 import ru.leqsle.labs.labTwo.LabTwo;
 
@@ -34,6 +35,8 @@ public class Menu {
                 new LabFour();
             case 5:
                 new FifthLab();
+            case 6:
+                new LabSix();
         }
     }
 
