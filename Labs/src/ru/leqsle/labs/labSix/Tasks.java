@@ -107,8 +107,12 @@ public class Tasks extends Task {
             this.name = name;
         }
 
-        public void setAge(int age) {
-            this.age = age;
+        public boolean setAge(int age) {
+            if(age > 0 && age < 20) {
+                this.age = age;
+                return true;
+            } else return false;
+
         }
 
         public void setRating(float rating) {

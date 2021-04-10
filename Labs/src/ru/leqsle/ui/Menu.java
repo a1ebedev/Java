@@ -11,18 +11,37 @@ import java.io.IOException;
 
 public class Menu {
     private Input input = new Get();
+    private Lines line;
+    private boolean ok;
+    private int question;
 
     // Основное меню
     public void main() throws IOException {
+        line = new Lines();
+
         System.out.println();
+        line.draw("=", 60);
+
         for (int i = 1; i <= 5; i++) {
             System.out.print(i + " - Запустить работу №" + i + "      ");
             i++;
             System.out.println(i + " - Запустить работу №" + i);
         }
+        line.draw("=", 60);
         System.out.println();
 
-        int question = input.getInt("Введите значение");
+        do {
+            question = input.getInt("Введите значение");
+            try {
+                if (question < 1 || question > 6) {
+                    throw new Exception();
+                } else ok = true;
+            } catch (Exception e) {
+                ok = false;
+                System.out.println("Ошибка! Введите значение от 1 до 6.");
+            }
+        } while (!ok);
+
 
         switch (question) {
             case 1:
